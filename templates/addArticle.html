@@ -1,0 +1,73 @@
+{% extends "manage.html" %}
+
+{% block content %}
+
+<div>
+<p class="addArt">添加文章</p>
+<form action="/blog/addArticle" method="post">
+{% csrf_token %}
+<div id="edit_title">
+
+    <b>标题</b><span style="color: red">{{ forms.errors.article_title.0 }}</span>
+    <br>
+    <input name="article_title" type="text" maxlength="200"  id="article_title" value="{{ forms.cleaned_data.article_title }}" style="width:100%;">
+</div>
+<div id="edit_content">
+    <b>内容</b><span style="color: red"></span>
+    <br>
+    <textarea name="article_content" id="article_content" cols="100" rows="10">{{ forms.cleaned_data.article_content }}</textarea>
+</div>
+<div class="category">
+    <p class="self_cate">>>个人分类</p>
+    {% for obj in personal_category %}
+        <input type="radio" name="personal_category" value="{{ obj.nid }}">{{ obj.title }}||
+
+    {% endfor %}
+
+    <p class="site_cate">>>网站分类</p>
+    {% for obj in SiteCategory %}
+    <div>
+    <span>{{ obj.name }}:</span>
+    {% for article_category in obj.sitearticlecategory_set.all %}
+        <input type="radio" name="site_category" value="{{ article_category.id }}">{{ article_category.name }}
+    {% endfor %}
+
+    </div>
+    {% endfor %}
+
+    <p class="tags">>>选择标签</p>
+     <div>
+          {% for tag_obj in personal_tag %}
+            <input type="checkbox" name="personal_tag" value="{{ tag_obj.nid }}">{{ tag_obj.title }}
+
+        {% endfor %}
+
+     </div>
+
+</div>
+
+<div>
+    <input type="submit" class="btn btn-primary" value="发布">
+    <a href=""><input type="button" class="btn btn-default" value="取消"></a>
+</div>
+</form>
+
+
+</div>
+
+<script charset="utf-8" src="/static/Kindeditor/kindeditor-all.js"></script>
+<script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#article_content',{
+                    width:"100%",
+                    height:"500px",
+                    resizeType:1,
+                    uploadJson:"/blog/upload",
+                    extraFileUploadParams:{
+                           csrfmiddlewaretoken:K("[name='csrfmiddlewaretoken']").val(),
+                       }
+
+                });
+        });
+</script>
+{% endblock %}

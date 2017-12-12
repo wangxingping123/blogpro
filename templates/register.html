@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>注册页面</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/mycss/register.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+                <li><a href="#">园子</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="row col-md-offset-4 log">
+        <img src="/static/images/login.png">
+    </div>
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-offset-3 col-md-2 control-label">用户名：</label>
+                <div class="col-md-3">
+                    {% csrf_token %}
+                    <input type="text" class="form-control username" placeholder="用户名不能少于四位">
+
+                </div>
+                <label class="col-md-4 error_user"></label>
+            </div>
+            <div class="form-group">
+                <label class="col-md-offset-3 col-md-2 control-label">密码：</label>
+                <div class="col-md-3">
+                    <input type="password" class="form-control password" placeholder="密码不能少于八位">
+                </div>
+                <label class="col-md-4 error_pwd"></label>
+            </div>
+            <div class="form-group">
+                <label class="col-md-offset-3 col-md-2 control-label">确认密码：</label>
+                <div class="col-md-3">
+                    <input type="password" class="form-control password_repeat" placeholder="跟密码必须一致">
+                </div>
+                <label class="col-md-4 error_pwd_repeat"></label>
+            </div>
+            <div class="form-group">
+                <label class="col-md-offset-3 col-md-2 control-label">邮箱：</label>
+                <div class="col-md-3">
+                    <input type="email" class="form-control email" placeholder="请输入邮箱">
+                </div>
+                <label class="col-md-4 error_email"></label>
+            </div>
+            <div class="form-group">
+                <label class="col-md-offset-3 col-md-2 control-label">头像：</label>
+                <div class="col-md-3 valid">
+                    <img src="/media/avatar/default.png" id="valid_img" alt="">
+                    <input type="file" id="valid_file">
+                </div>
+
+            </div>
+            <div class="form-group btn_group">
+                <div class="col-md-1 col-md-offset-5">
+                    <input type="button" class="btn btn-success" value="确认" id="submit">
+                </div>
+                <div class="col-md-1 col-md-offset-1">
+                    <a href="/login/"><input type="button" class="btn btn-warning" style="margin-left: 13px" value="登录"></a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+<script src="/static/jquery-3.2.1.min.js"></script>
+<script src="/static/jquery.cookie.js"></script>
+<script src="/static/myjs/register.js"></script>
+
+</body>
+</html>

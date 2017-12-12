@@ -1,0 +1,98 @@
+body {
+    background-color: silver
+}
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+.header {
+    height: 80px;
+    background-color: #1b6d85;
+    border: solid 1px skyblue;
+}
+
+.header_left {
+    color: white;
+    line-height: 80px;
+    padding-left: 40px
+}
+
+.header-btn {
+    margin-left: 20px;
+    margin-top: 40px;
+    background-color: #2aabd2;
+    padding: 5px 10px
+}
+
+.header-btn:hover {
+    background-color: #9acfea
+}
+
+.header-btn a {
+    color: white;
+}
+
+.content_left {
+    margin-top: 10px;
+    background-color: white;
+    padding-left: 10px;
+}
+
+.avatar {
+    border-radius: 50%;
+    border: solid 1px skyblue
+}
+
+.content_right {
+    background-color: white;
+    margin-top: 10px;
+}
+
+.article .article_title {
+    clear: both;
+    color: #2aabd2;
+    font-family: 楷体;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0
+}
+
+.article hr {
+    margin-top: 0
+}
+
+.container-fluid a {
+    text-decoration: none
+}
+
+.container-fluid a :hover {
+    text-decoration: none;: none;
+    color: red
+}
+
+/*article.html样式*/
+.article{padding-right: 20px}
+.article_content{font-family: 黑体;font-size: 16px;text-align: justify;}
+.article_userinfo{margin-top: 50px;margin-left: 50px}
+.article_userinfo span{text-decoration: underline}
+.article_good,.article_bad{margin-right: 20px;border: solid 1px #dddddd}
+.article_good .one,.article_good .two,.article_bad .one,.article_bad .two {width: 50px;height: 30px;
+text-align: center}
+.article_good .one{background-color: #f2dede;margin-bottom: 2px}
+.article_good .two{background-color: whitesmoke}
+
+.article_bad .one{background-color: #dddddd;margin-bottom: 2px}
+.article_bad .two{background-color: whitesmoke}
+
+.comment{clear: both;font-weight: 700}
+.commentlist .function .f1 a{margin-left: 35px}
+
+.commentlist .function .f2{margin-top: 20px}
+.commentlist .function .f2 a{margin-left: 15px;color: gray;font-size: 13px}
+.f3 a{margin-left: 20px;}
+
+.article_con{border: solid 1px silver}
+
+.coment_tree .coment_tree{margin-left: 2%;}

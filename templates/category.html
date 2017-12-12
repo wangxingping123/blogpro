@@ -1,0 +1,29 @@
+{% extends "manage.html" %}
+
+{% block content %}
+<table class="table table-striped">
+<thead>
+<tr>
+    <th>序号</th>
+    <th>分类名</th>
+    <th>操作</th>
+    <th>操作</th>
+</tr>
+</thead>
+<tbody>
+{% for category in category_obj %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ category.title }}</td>
+    <td><button>编辑</button></td>
+    <td><button>删除</button></td>
+    </tr>
+
+{% endfor %}
+
+</tbody>
+</table>
+<p style="background-color: #1b6d85;color: white;">添加新分类</p>
+<p>分类名：<input type="text"></p>
+    <button>Add</button>
+{% endblock %}

@@ -1,0 +1,25 @@
+/*头部分css样式*/
+*{margin: 0;padding: 0}
+.header{border: solid 1px silver;}
+.header .row2 a{padding: 3px 20px;background-color: #cfe0f8;border: solid 1px silver}
+.manage_info a{padding: 0 10px}
+
+/*内容部分左侧菜单样式*/
+
+.con_left .panel{border-radius: 0;margin-bottom: 0}
+
+
+/*添加文章样式*/
+.addArt,.self_cate,.site_cate,.tags{    font-size: 105%;
+    background-color: #E5EEF7;
+    border-top: 1px solid #AAAAAA;
+    border-bottom: 1px dashed #AAAAAA;
+    font-weight: bold;
+    color: #333333;
+    width: auto;
+    padding: 2px 12px;
+    margin-top: 12px}
+
+#edit_title,#edit_content{color: #333333;
+
+    background-color: #e3e3e3;}

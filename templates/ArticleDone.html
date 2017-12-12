@@ -1,0 +1,17 @@
+{% extends "manage.html" %}
+
+{% block content %}
+
+    <div style="background-color: whitesmoke">
+    <div style="color: #333333;background: #EEEEEE;border: 1px dashed #CCCCCC;padding: 12px;
+font-weight: bold;height: 50px">发布成功</div>
+    <p>文章标题：<a href="/blog/{{ request.user.username }}/article/{{ article_obj.nid }}">{{ article_obj.title }}</a></p>
+    <p><a href="/blog/{{ request.user.username }}/article/{{ article_obj.nid }}">>>立即查看</a></p>
+    <p><a href="">>>继续编辑</a></p>
+    <p><a href="/blog/{{ request.user.username }}/manage">>>后台首页</a></p>
+    <p><a href="/">>>博客首页</a></p>
+
+    </div>
+
+{% endblock %}
+

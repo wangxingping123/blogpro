@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/mycss/index.css">
+
+</head>
+<body>
+{#导航条#}
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">博客园</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">新闻</a></li>
+                <li><a href="#">博问</a></li>
+                <li><a href="#">闪存</a></li>
+                <li><a href="#">小组</a></li>
+                <li><a href="#">收藏</a></li>
+                <li><a href="#">找找看</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                {% if request.user.username %}
+                    <li><a href="/blog/{{ request.user.username }}"><span class="glyphicon glyphicon-user">{{ request.user.username }}</span></a>
+                    </li>
+                    <li><a href="/logout/">注销</a></li>
+                {% else %}
+                    <li><a href="/login/">登录</a></li>
+                    <li><a href="/register/">注册</a></li>
+                {% endif %}
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+{#内容部分#}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="content-left">
+                <p class="site_classify">网站分类</p>
+                {% for obj in site_cate_objs %}
+                    <div class="content-left">
+                        <p class="classify_name">{{ obj.name }}</p>
+                        <div class="article_cate hides">
+                            {% for article_cate in obj.sitearticlecategory_set.all %}
+                                <a href="/cate/{{ article_cate.name }}"><p>{{ article_cate.name }}({{ article_cate.article_set.count }})</p></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            {% for article in article_objs %}
+                <div>
+                    <a href="/blog/{{ article.user.username }}/article/{{ article.nid }}">{{ article.title }}</a>
+                    <div class="row article_content">
+                        <div class="col-md-2">
+                            <a href="/blog/{{ article.user.username }}"><img src="/media/{{ article.user.avatar }}" alt="" class="article_img"></a>
+                        </div>
+                        <div class="col-md-10">
+                            {{ article.desc|safe }}
+                        </div>
+                    </div>
+
+                    <a href="/blog/{{ article.user.username }}">{{ article.user.username }}</a><span>发表于{{ article.create_time|date:"Y-m-d" }}</span>
+                    <span class="glyphicon glyphicon-thumbs-up article_foot">点赞({{ article.up_count }})</span>
+                    <span class="glyphicon glyphicon-comment article_foot">评论({{ article.comment_count }})</span>
+                    <span class="glyphicon glyphicon-eye-open article_foot">浏览量({{ article.read_count }})</span>
+
+                    <hr>
+                </div>
+
+
+            {% endfor %}
+        </div>
+        <div class="col-md-3">
+            <div class="content-right">
+                <p class="header">我们是谁</p>
+                <div class="second_herder">
+                    <p>程序员</p>
+                    <p>程序员</p>
+                    <p>程序员</p>
+                    <p>程序员</p>
+                </div>
+            </div>
+            <div class="content-right">
+                <p class="header">想说什么</p>
+                <div class="second_herder">
+                    <p>不修电脑</p>
+                    <p>不修电脑</p>
+                    <p>不修电脑</p>
+                    <p>不修电脑</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/jquery-3.2.1.min.js"></script>
+<script src="/static/myjs/index.js"></script>
+</body>
+</html>

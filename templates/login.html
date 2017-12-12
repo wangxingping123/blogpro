@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/mycss/login.css">
+{#    滑动验证码插件#}
+    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+
+    <script src="http://static.geetest.com/static/tools/gt.js"></script>
+
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">首页</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li><a href="#">园子</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+<div class="container">
+    <div class="row col-md-offset-4 log">
+        <img src="/static/images/login.png">
+    </div>
+    <h3 class="text-center">人生在勤，不索何获</h3>
+    <div class="row">
+        <form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-md-offset-3 col-md-2 control-label">用户名：</label>
+    <div class="col-md-3">
+        {% csrf_token %}
+      <input type="text" class="form-control username"  placeholder="请输入用户名">
+
+    </div>
+      <label class="col-md-4 error_user"></label>
+  </div>
+  <div class="form-group">
+    <label class="col-md-offset-3 col-md-2 control-label">密码：</label>
+    <div class="col-md-3">
+      <input type="password" class="form-control password" placeholder="请输入密码">
+    </div>
+      <label class="col-md-4 error_pwd"></label>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-offset-3 col-md-2 control-label">验证码：</label>
+    <div class="col-md-1 valid_input">
+      <input type="text" class="form-control" placeholder="验证码" id="valid">
+    </div>
+      <div class="col-md-2">
+          <img class="valid_code" src="/get_valid_code/" alt="" height="40" width="170"><a id="change">看不清，换一张</a>
+    </div>
+      <label class="col-md-4 error_valid"></label>
+  </div>
+
+
+  <div class="form-group">
+    <div class="col-md-1 col-md-offset-5">
+        <input type="button" class="btn btn-success" value="登录" id="btn_login">
+    </div>
+    <div class="col-md-1 col-md-offset-1">
+        <a href="/register/"><input type="button" class="btn btn-warning" style="margin-left: 13px" value="注册"></a>
+    </div>
+  </div>
+</form>
+
+    </div>
+</div>
+<div id="popup-captcha"></div>
+
+<script src="/static/jquery-3.2.1.min.js"></script>
+<script src="/static/jquery.cookie.js"></script>
+{#<script src="/static/myjs/login.js"></script>#}
+
+
+<script src="/static/myjs/login.js"></script>
+</body>
+</html>

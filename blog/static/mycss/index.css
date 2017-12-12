@@ -1,0 +1,15 @@
+.hides{display: none}
+.classify_name{text-align: center;height: 40px;line-height: 40px;background-color: whitesmoke}
+.article_cate{padding-left: 20px}
+.content-left{border: solid whitesmoke 1px;padding: 5px}
+.site_classify{height: 30px;background-color: #1b6d85;color: white;
+line-height: 30px;padding-left: 20px}
+.article_img{width: 80px;height: 80px;border: 1px solid sandybrown}
+.article_content{margin-bottom: 10px}
+.article_foot{padding-left: 10px}
+/*右边css*/
+.content-right{border: solid 2px wheat;margin-bottom: 20px}
+.header{height: 40px;line-height: 40px;text-align: center;background-color: #d58512;
+        color: whitesmoke;}
+.second_herder{border: solid 1px floralwhite}
+.second_herder p{padding-left: 20px}
